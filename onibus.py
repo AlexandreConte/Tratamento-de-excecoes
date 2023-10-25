@@ -46,9 +46,9 @@ class Onibus(AbstractOnibus):
 
     def ligar(self):
         '''
-        Liga o onibus
-        Lanca uma excecao caso jah esteja ligado
-        Caso ligue, retorna "Ligando o onibus!"
+        Liga o onibus.
+        Lanca uma excecao caso jah esteja ligado.
+        Caso ligue, retorna "Ligando o onibus!".
         '''
         if self.ligado:
             raise OnibusJahLigadoException()
@@ -58,9 +58,9 @@ class Onibus(AbstractOnibus):
 
     def desligar(self):
         '''
-        Desliga o onibus
-        Lanca uma excecao caso jah desligado
-        Caso desligue retorna "Desligando o onibus!"
+        Desliga o onibus.
+        Lanca uma excecao caso jah desligado.
+        Caso desligue retorna "Desligando o onibus!".
         '''
         desligado = not self.ligado
         if desligado:
@@ -71,8 +71,8 @@ class Onibus(AbstractOnibus):
 
     def embarca_pessoa(self) -> str:
         '''
-        Acrescenta 1 no numero de passageiros do onibus
-        Lanca excecao se estiver cheio
+        Acrescenta 1 no numero de passageiros do onibus.
+        Lanca excecao se estiver cheio.
         '''
         lotado = self.capacidade == self.total_passageiros
         if lotado:
@@ -83,8 +83,8 @@ class Onibus(AbstractOnibus):
 
     def desembarca_pessoa(self) -> str:
         '''
-        Descrescenta 1 no numero de passageiros do onibus
-        Lanca excecao se estiver vazio
+        Descrescenta 1 no numero de passageiros do onibus.
+        Lanca excecao se estiver vazio.
         '''
         if self.total_passageiros == 0:
             raise OnibusJahVazioException()
