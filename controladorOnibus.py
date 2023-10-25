@@ -6,7 +6,6 @@ from onibus import Onibus
 class ControladorOnibus(AbstractControladorOnibus):
     def __init__(self):
         self.__onibus = None
-        super().__init__()
 
     @property
     def onibus(self) -> Onibus:
@@ -22,14 +21,30 @@ class ControladorOnibus(AbstractControladorOnibus):
         Instancia um onibus e atualiza o onibus atual
         Parametros invalidos lanca excecao ComandoInvalidoException
         '''
-        if not isinstance(capacidade, int) or \
-            not isinstance(total_passageiros, int) or \
-                not isinstance(ligado, bool):
+        self.__valida_parametros_onibus(
+            capacidade=capacidade,
+            total_passageiros=total_passageiros,
+            ligado=ligado
+        )
+        self.onibus = Onibus(
+            capacidade, total_passageiros, ligado
+        )
+
+    def __valida_parametros_onibus(
+        self,
+        capacidade: int,
+        total_passageiros: int,
+        ligado: int
+    ):
+        if (
+            not isinstance(capacidade, int) or
+            not isinstance(total_passageiros, int) or
+            not isinstance(ligado, bool) or
+            capacidade <= 0 or
+            total_passageiros <= 0 or
+            total_passageiros > capacidade
+        ):
             raise ComandoInvalidoException()
-        else:
-            self.onibus = Onibus(
-                capacidade, total_passageiros, ligado
-            )
 
     def ligar(self) -> str:
         return self.onibus.ligar()
