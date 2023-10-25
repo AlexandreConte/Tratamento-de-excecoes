@@ -7,9 +7,9 @@ from onibusJahDesligadoException import OnibusJahDesligadoException
 
 class Onibus(AbstractOnibus):
     def init(self, capacidade: int, total_passageiros: int, ligado: bool):
-        self.__capacidade = 0
-        self.__total_passageiros = 0
-        self.__ligado = False
+        self.__capacidade = None
+        self.__total_passageiros = None
+        self.__ligado = None
         if isinstance(capacidade, int):
             self.__capacidade = capacidade
         if isinstance(total_passageiros, int):
