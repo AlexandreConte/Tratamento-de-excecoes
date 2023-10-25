@@ -16,7 +16,12 @@ class ControladorOnibus(AbstractControladorOnibus):
         if isinstance(onibus, Onibus):
             self.__onibus = onibus
 
-    def inicializar_onibus(self, capacidade: int, total_passageiros: int, ligado: bool):
+    def inicializar_onibus(
+        self,
+        capacidade: int, 
+        total_passageiros: int, 
+        ligado: bool
+    ):
         '''
         Instancia um onibus e atualiza o onibus atual
         Parametros invalidos lanca excecao ComandoInvalidoException
@@ -26,7 +31,7 @@ class ControladorOnibus(AbstractControladorOnibus):
             total_passageiros=total_passageiros,
             ligado=ligado
         )
-        self.onibus = Onibus(
+        self.__onibus = Onibus(
             capacidade, total_passageiros, ligado
         )
 
