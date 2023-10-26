@@ -46,19 +46,19 @@ class ControladorOnibus(AbstractControladorOnibus):
             not isinstance(total_passageiros, int) or
             not isinstance(ligado, bool) or
             capacidade <= 0 or
-            total_passageiros <= 0 or
+            total_passageiros < 0 or
             total_passageiros > capacidade
         ):
             raise ComandoInvalidoException()
 
     def ligar(self) -> str:
-        return self.onibus.ligar()
+        return self.__onibus.ligar()
 
     def desligar(self) -> str:
-        return self.onibus.desligar()
+        return self.__onibus.desligar()
 
     def embarca_pessoa(self) -> str:
-        return self.onibus.embarca_pessoa()
+        return self.__onibus.embarca_pessoa()
 
     def desembarca_pessoa(self) -> str:
-        return self.onibus.desembarca_pessoa()
+        return self.__onibus.desembarca_pessoa()
